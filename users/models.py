@@ -10,6 +10,6 @@ class User(models.Model):
         return self.phone
 
     age = models.IntegerField()
-    sex = models.BooleanField()
+    sex = models.BooleanField(verbose_name='male') #male=1, female=0
     phone = models.CharField(max_length=11)
     pin = models.CharField(max_length=4)

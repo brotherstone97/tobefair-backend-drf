@@ -6,8 +6,8 @@ class Branch(models.Model):
     branch_name = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
     tel = models.CharField(max_length=11)
-    open_time = models.CharField(max_length=5, null=True)
-    close_time = models.CharField(max_length=5, null=True)
+    open_time = models.CharField(max_length=5, null=True, blank=True)
+    close_time = models.CharField(max_length=5, null=True, blank=True)
     business_license_number = models.CharField(max_length=10)
 
     class Meta:
