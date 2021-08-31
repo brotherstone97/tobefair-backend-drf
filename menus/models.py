@@ -26,7 +26,7 @@ class Menu(models.Model):
     price = models.IntegerField()
     register_date = models.DateTimeField(auto_now_add=True)
     menu_info = models.CharField(max_length=255, null=True)
-    branch_id = models.ForeignKey(Branch, on_delete=models.CASCADE)
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
     allergy_ingredient = models.IntegerField()
     ingredient = models.ManyToManyField(Ingredient)
 

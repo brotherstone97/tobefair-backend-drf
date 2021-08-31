@@ -24,11 +24,11 @@ class Order(models.Model):
     def __int__(self):
         return self.id
 
-    branch_id = models.ForeignKey(Branch, on_delete=models.CASCADE)
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
     order_date = models.DateTimeField(auto_now_add=True)
-    personal_information_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    personal_information = models.ForeignKey(User, on_delete=models.CASCADE)
     take_out = models.BooleanField()
-    payment_id = models.ForeignKey(Payment, on_delete=models.CASCADE)
+    payment = models.ForeignKey(Payment, on_delete=models.CASCADE)
 
 
 class OrderMenu(models.Model):
@@ -38,7 +38,7 @@ class OrderMenu(models.Model):
     def __int__(self):
         return self.id
 
-    order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
-    menu_id = models.ForeignKey(Menu, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
     order_menu_memo = models.CharField(max_length=255, null=True)
     count = models.IntegerField()
