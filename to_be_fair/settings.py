@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'to_be_fair.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'to-be-fair-db',
+        'NAME': 'to-be-fair',
         'USER': 'tobefair',
         'PASSWORD':'tobefair',
-        'HOST': 'to-be-fair-db.capd6rvtajpo.ap-northeast-2.rds.amazonaws.com',
+        'HOST': 'to-be-fair.capd6rvtajpo.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
