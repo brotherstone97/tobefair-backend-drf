@@ -15,6 +15,7 @@ class Payment(models.Model):
 
     payment_method = models.CharField(max_length=10)
     payment_date = models.DateTimeField(auto_now_add=True)
+    #total_amount자동 계산 필요
     total_amount = models.IntegerField()
     payment_completion = models.BooleanField()
 
