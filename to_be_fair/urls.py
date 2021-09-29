@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
+#simpleJWT
+from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +25,7 @@ urlpatterns = [
     path('branches/', include('branches.urls')),
     path('orders/', include('orders.urls')),
     path('users/', include('users.urls')),
-
+    #Token
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
 ]
