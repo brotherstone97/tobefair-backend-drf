@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 class Menus_view_set(viewsets.ModelViewSet):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 class Ingredients_view_set(viewsets.ModelViewSet):
     queryset = Ingredient.objects.all()
