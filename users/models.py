@@ -47,7 +47,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     age = models.IntegerField(null=True)
     sex = models.BooleanField(verbose_name='male', null=True)  # male=1, female=0
     phone = models.CharField(max_length=11, unique=True)
-    password = models.CharField(max_length=4)
+    # password = models.CharField(max_length=4)
 
     class Meta:
         db_table = 'personal_information'
