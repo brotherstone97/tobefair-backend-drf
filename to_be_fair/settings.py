@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'menus',
     'orders',
     'users',
-    #use built-in token
+    'login',
+    # use built-in token
     'rest_framework.authtoken',
 ]
 
@@ -79,15 +80,23 @@ WSGI_APPLICATION = 'to_be_fair.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # 서버용
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'to_be_fair',
+    #     'USER': 'tobefair',
+    #     'PASSWORD': 'tobefair',
+    #     'HOST': 'to-be-fair.capd6rvtajpo.ap-northeast-2.rds.amazonaws.com',
+    #     'PORT': '3306',
+    # }
+    # 로컬테스트용
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'to_be_fair',
-        'USER': 'tobefair',
-        'PASSWORD': 'tobefair',
-        'HOST': 'to-be-fair.capd6rvtajpo.ap-northeast-2.rds.amazonaws.com',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+AUTH_USER_MODEL = 'users.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -112,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -130,9 +139,16 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#JWT Authentication
+# JWT Authentication
 # REST_FRAMEWORK = {
 #     'DEFAULT_AUTHENTICATION_CLASSES': [
 #         'rest_framework_simplejwt.authentication.JWTAuthentication',
 #     ]
 # }
+
+# Built-in Token Authentication
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+}

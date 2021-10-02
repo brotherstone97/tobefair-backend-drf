@@ -257,3 +257,10 @@ fabric.properties
 .idea/codestream.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/pycharm,django
+
+#exclude migrations
+branches/migrations
+login/migrations
+menus/migrations
+orders/migrations
+users/migrations

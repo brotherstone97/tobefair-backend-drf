@@ -25,6 +25,8 @@ urlpatterns = [
     path('branches/', include('branches.urls')),
     path('orders/', include('orders.urls')),
     path('users/', include('users.urls')),
+    path('login/', include('login.urls'))
+
     #JWT Token
     # path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
