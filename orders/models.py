@@ -32,7 +32,7 @@ class Order(models.Model):
     order_date = models.DateTimeField(auto_now_add=True)
     personal_information = models.ForeignKey(User, on_delete=models.CASCADE)
     take_out = models.BooleanField()
-    payment = models.ForeignKey(Payment, on_delete=models.CASCADE)
+    payment = models.ForeignKey(Payment, null=True, blank=True, on_delete=models.CASCADE)
 
 
 class OrderMenu(models.Model):
@@ -44,7 +44,7 @@ class OrderMenu(models.Model):
     def __str__(self):
         return str(self.order.order_date.date()) + f' ({str(self.order)}) ' + str(self.order.personal_information)
 
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, null=True, blank=True, on_delete=models.CASCADE)
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
     order_menu_memo = models.CharField(max_length=255, null=True, blank=True)
     count = models.IntegerField()
