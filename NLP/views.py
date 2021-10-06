@@ -1,45 +1,32 @@
-# Library
-import pandas as pd
-import numpy as np
+import nlp
 
-# Load Dataset
-df = pd.read_csv('./customer_requests.csv')
-print(df.head())
+from users.models import User
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.authtoken.models import Token
 
-# 텍스트 전처리
-# 한글 형태소 분석기 KONLPy
-from konlpy.tag import Okt
-
-oKt = Okt()
-
-text = df["questions"][0]
-
-print(f'oKt.pos테스트{oKt.pos(text)}\n')
-print(f'oKt.morphs테스트{oKt.pos(text)}\n')
-
-# 특수 문자 제거
-remove_special_characters = df['questions'].str.replace('[^가-힣ㄱ-ㅎㅏ-ㅣA-Za-z]', '')
-print(f'특수문자 제거 결과: {remove_special_characters}\n')
-
-remove_meaningless_korean = remove_special_characters.str.replace('ㅇ', '')
-
-df['questions_cleaned'] = remove_meaningless_korean
-print(df.head(20))
-
-# 실습
-
-stop_words = ['게', '의', '은', '도', '들', '는', '에', '하', '이', '가', '던', '지', '를', '고', '다', '을', '저', '기', '든']
+from django.contrib.auth import authenticate
 
 
-def tokenizer(sentence):
-    cleaned_token = []
-    uncleand_tokens = oKt.morphs(sentence)
+class PostSentence(APIView):
+    def post(self, request):
+        #post에 key=sentence, value=값을 담아서 보냄
+        sentence = request.data['sentence']
+        nlp.tokenizer(sentence)
 
-    for word in uncleand_tokens:
-        if not word in stop_words:
-            cleaned_token.append(word)
-
-    return cleaned_token
+        # 토큰을 뿌려줌 잘 활용해보자
+        return Response({'Success POST'})
 
 
-df['questions_cleaned'] = remove_meaningless_korean.apply(lambda setence: tokenizer(setence))
+class GetText(APIView):
+    def post(self, request):
+        user = authenticate(phone=request.data['phone'], password=request.data['password'])
+        if user is not None:
+            token = Token.objects.get(user=user)
+            print('Success')
+            return Response({'Token': token.key})
+        else:
+            print('failed')
+            return Response(status=401)
+
+# class PostOrder:
