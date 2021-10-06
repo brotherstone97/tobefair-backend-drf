@@ -42,8 +42,7 @@ class OrderMenu(models.Model):
     # 2021-08-31 (1(1호점)) 01062557191
     # 년월일 -> 년월일시로 바꿀 수도 있음
     def __str__(self):
-        # return str(self.order.order_date.date()) + f' ({str(self.order)}) ' + str(self.order.personal_information)
-        return f' ({str(self.order)}) ' + str(self.order.personal_information)
+        return str(self.order.order_date.date()) + f' ({str(self.order)}) ' + str(self.order.personal_information)
 
     order = models.ForeignKey(Order, null=True, blank=True, on_delete=models.CASCADE)
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)

@@ -81,20 +81,20 @@ WSGI_APPLICATION = 'to_be_fair.wsgi.application'
 
 DATABASES = {
     # 서버용
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'to_be_fair',
-        'USER': 'tobefair',
-        'PASSWORD': 'tobefair',
-        'HOST': 'to-be-fair.capd6rvtajpo.ap-northeast-2.rds.amazonaws.com',
-        'PORT': '3306',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'to_be_fair',
+    #     'USER': 'tobefair',
+    #     'PASSWORD': 'tobefair',
+    #     'HOST': 'to-be-fair.capd6rvtajpo.ap-northeast-2.rds.amazonaws.com',
+    #     'PORT': '3306',
+    # }
 
     # 로컬테스트용
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 AUTH_USER_MODEL = 'users.User'
