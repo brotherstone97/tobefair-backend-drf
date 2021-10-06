@@ -11,7 +11,7 @@ print(df.head())
 from konlpy.tag import Okt
 oKt = Okt()
 
-text = df["question"][0]
+text = df["questions"][0]
 
 print(f'oKt.pos테스트{oKt.pos(text)}\n')
 print(f'oKt.morphs테스트{oKt.pos(text)}\n')
