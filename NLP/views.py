@@ -8,7 +8,7 @@ class PostSentence(APIView):
     def post(self, request):
         # post에 key=sentence, value=값을 담아서 보냄
         sentence = request.data['sentence']
-        result = nlp.extract()
+        result = nlp.extract(sentence)
         return Response(result)
     # def get(self, response):
 
