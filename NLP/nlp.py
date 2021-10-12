@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from konlpy.tag import Okt
 
-menu_df = pd.read_csv("./csv/fastfood_menu.csv")
+menu_df = pd.read_csv("csv/fastfood_menu.csv")
 count_df = pd.read_csv("./csv/count.csv")
 conj_df = pd.read_csv("csv/conj.csv")
 
