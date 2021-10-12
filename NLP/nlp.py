@@ -1,10 +1,14 @@
 import pandas as pd
 import numpy as np
 from konlpy.tag import Okt
+import os
 
-menu_df = pd.read_csv("/csv/fastfood_menu.csv")
-count_df = pd.read_csv("./csv/count.csv")
-conj_df = pd.read_csv("./csv/conj.csv")
+project_path = os.getcwd()
+csv_path = project_path + "/NLP/csv/"
+
+menu_df = pd.read_csv(f'{csv_path}fastfood_menu.csv')
+count_df = pd.read_csv(f'{csv_path}count.csv')
+conj_df = pd.read_csv(f'{csv_path}conj.csv')
 
 okt = Okt()
 
