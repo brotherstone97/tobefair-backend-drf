@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'orders',
     'users',
     'login',
+    'NLP',
     # use built-in token
     'rest_framework.authtoken',
 ]
