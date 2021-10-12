@@ -11,7 +11,7 @@ okt = Okt()
 
 def extract(sentence):
     # 프론트로 보낼 dictionary
-    response = {}
+    result = {}
 
     # 메뉴와 수량을 담을 list
     menu_list = np.array([])
@@ -62,6 +62,6 @@ def extract(sentence):
 
     print('final menu_list : ', menu_list, '\n')
     print('count_list:', count_list, '\n')
-    response['menu'] = menu_list
-    response['count'] = count_list
-    return response
+    result['menu'] = menu_list
+    result['count'] = count_list
+    return result

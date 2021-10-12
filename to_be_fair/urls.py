@@ -26,6 +26,7 @@ urlpatterns = [
     path('menus/', include('menus.urls')),
     path('branches/', include('branches.urls')),
     path('orders/', include('orders.urls')),
+    path('nlp/', include('NLP.urls')),
     path('users/', include('users.urls')),
     path('login/', include('login.urls'))
 
